@@ -10,10 +10,10 @@ var Collapsible = React.createClass({
     open: React.PropTypes.bool,
     classParentString: React.PropTypes.string,
     openedClassName: React.PropTypes.string,
-      triggerClassName: React.PropTypes.string,
-      triggerOpenedClassName: React.PropTypes.string,
-      contentOuterClassName: React.PropTypes.string,
-      contentInnerClassName: React.PropTypes.string,
+    triggerClassName: React.PropTypes.string,
+    triggerOpenedClassName: React.PropTypes.string,
+    contentOuterClassName: React.PropTypes.string,
+    contentInnerClassName: React.PropTypes.string,
     accordionPosition: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
     handleTriggerClick: React.PropTypes.func,
     trigger: React.PropTypes.oneOfType([
@@ -78,18 +78,18 @@ var Collapsible = React.createClass({
   // Taken from https://github.com/EvandroLG/transitionEnd/
   // Determines which prefixed event to listen for
   whichTransitionEnd: function(element){
-      var transitions = {
-          'WebkitTransition' : 'webkitTransitionEnd',
-          'MozTransition'    : 'transitionend',
-          'OTransition'      : 'oTransitionEnd otransitionend',
-          'transition'       : 'transitionend'
-      };
+    var transitions = {
+      'WebkitTransition' : 'webkitTransitionEnd',
+      'MozTransition'    : 'transitionend',
+      'OTransition'      : 'oTransitionEnd otransitionend',
+      'transition'       : 'transitionend'
+    };
 
-      for(var t in transitions){
-          if(element.style[t] !== undefined){
-              return transitions[t];
-          }
+    for(var t in transitions){
+      if(element.style[t] !== undefined){
+        return transitions[t];
       }
+    }
   },
 
   componentDidMount: function() {
@@ -211,7 +211,7 @@ var Collapsible = React.createClass({
     var children = this.props.children;
     if(this.props.lazyRender)
       if(!this.state.hasBeenOpened)
-          children = null;
+        children = null;
 
     const triggerClassName = [
       this.props.classParentString + "__trigger",
@@ -225,7 +225,7 @@ var Collapsible = React.createClass({
         <span className={triggerClassName} onClick={this.handleTriggerClick}>{trigger}</span>
         <div className={this.props.classParentString + "__contentOuter" + ' ' + this.props.contentOuterClassName } ref="outer" style={dropdownStyle}>
           <div className={this.props.classParentString + "__contentInner" + ' ' + this.props.contentInnerClassName} ref="inner">
-              {children}
+            {children}
           </div>
         </div>
       </div>
