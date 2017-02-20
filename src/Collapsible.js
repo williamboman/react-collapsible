@@ -213,8 +213,12 @@ var Collapsible = React.createClass({
       if(!this.state.hasBeenOpened)
           children = null;
 
-    const triggerClassName = this.props.classParentString + "__trigger" + ' ' + openClass + ' ' + disabledClass 
-      + this.state.isClosed ? this.props.triggerClassName : this.prop.triggerOpenedClassName;
+    const triggerClassName = [
+      this.props.classParentString + "__trigger",
+      openClass,
+      disabledClass,
+      this.state.isClosed ? this.props.triggerClassName : this.props.triggerOpenedClassName,
+    ].join(' ')
 
     return(
       <div className={this.props.classParentString + ' ' + (this.state.isClosed ? this.props.className : this.props.openedClassName)}>
